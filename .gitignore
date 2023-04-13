@@ -16,20 +16,4 @@ notebooks/.env
 # app
 .next
 node_modules
-<<<<<<< Updated upstream
-.obsidian/app.json
-.obsidian/appearance.json
-.obsidian/core-plugins-migration.json
-.obsidian/core-plugins.json
-.obsidian/graph.json
-.obsidian/hotkeys.json
-.obsidian/workspace.json
-=======
-.obsidian/workspace.json
-.obsidian/hotkeys.json
-.obsidian/graph.json
-.obsidian/core-plugins.json
-.obsidian/core-plugins-migration.json
-.obsidian/appearance.json
-.obsidian/app.json
->>>>>>> Stashed changes
+
