@@ -1,6 +1,6 @@
 {
     "settings": "LLM 설정",
-    "basics": "프롬프팅의 기본",
+    "basics": "기본적인 프롬프팅",
     "elements": "프롬프트 요소",
     "tips": "프롬프트를 설계하는 일반적인 팁",
     "examples": "프롬프트 예제"
