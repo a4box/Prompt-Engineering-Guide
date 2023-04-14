@@ -1,9 +1,9 @@
 {
-  "index": "Prompt Engineering",
-  "introduction": "Introduction",
+  "index": "프롬프트 엔지니어링",
+  "introduction": "소개",
   "techniques": "Techniques",
-  "applications": "Applications",
-  "models": "Models",
+  "applications": "어플리케이션",
+  "models": "모델",
   "risks": "Risks & Misuses",
   "papers": "Papers",
   "tools": "Tools",
