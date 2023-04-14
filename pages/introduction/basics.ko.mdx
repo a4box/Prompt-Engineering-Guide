@@ -1,114 +1,116 @@
-# Basics of Prompting
+# 프롬프팅의 기초
 
-## Basic Prompts
+## 기본적인 프롬프트
 
-You can achieve a lot with simple prompts, but the quality of results depends on how much information you provide it and how well-crafted it is. A prompt can contain information like the *instruction* or *question* you are passing to the model and including other details such as *context*, *inputs*, or *examples*. You can use these elements to instruct the model better and as a result get better results.
+간단한 프롬프트로 많은 것을 달성할 수 있지만 결과의 품질은 제공하는 정보의 양과 정보가 얼마나 잘 만들어졌는지에 따라 달라집니다. 프롬프트에는 모델에 전달하는 *지시* 또는 *질문*과 같은 정보와 *컨텍스트*, *입력* 또는 *예제*와 같은 기타 세부 정보가 포함될 수 있습니다. 이러한 요소를 사용하여 모델을 더 잘 지시하고 결과적으로 더 나은 결과를 얻을 수 있습니다.
 
-Let's get started by going over a basic example of a simple prompt:
+먼저 간단한 프롬프트의 기본 예에 대해 설명하겠습니다.:
 
-*Prompt*
+*프롬프트*
 ```
-The sky is
-```
-
-*Output:*
-```
-blue
-
-The sky is blue on a clear day. On a cloudy day, the sky may be gray or white.
+하늘이
 ```
 
-As you can see, the language model outputs a continuation of strings that make sense given the context `"The sky is"`. The output might be unexpected or far from the task we want to accomplish. 
-
-This basic example also highlights the necessity to provide more context or instructions on what specifically we want to achieve.
-
-Let's try to improve it a bit:
-
-*Prompt:*
+*출력:*
 ```
-Complete the sentence: 
+파랗다.
 
-The sky is
+맑은 날은 하늘이 파랗다. 흐린날엔 하늘이 회색이거나 하얗다.
 ```
 
-*Output:*
+보시다시피 언어 모델은 문맥 `"하늘이"`에 맞는 의미가 있는 문자열을 이어서 출력합니다. 결과는 예상치 못한 것일 수도 있고 우리가 원하는 작업과 다를 수도 있습니다.
 
+이 기본 예는 더 많은 문맥이나 또는 지시을 제공해야 하는 필요성에 대해 강조하기도 합니다.
+
+조금 고쳐볼까요?:
+
+*프롬프트:*
 ```
-so  beautiful today.
-```
+다음 문장을 완성하세요: 
 
-Is that better? Well, we told the model to complete the sentence so the result looks a lot better as it follows exactly what we told it to do ("complete the sentence"). This approach of designing optimal prompts to instruct the model to perform a task is what's referred to as **prompt engineering**. 
-
-The example above is a basic illustration of what's possible with LLMs today. Today's LLMs are able to perform all kinds of advanced tasks that range from text summarization to mathematical reasoning to code generation.
-
-## Prompt Formatting
-
-We have tried a very simple prompt above. A standard prompt has the following format:
-
-```
-<Question>?
+하늘이
 ```
 
-or 
+*출력:*
 
 ```
-<Instruction>
+오늘은 매우 아름답다.
+```
+
+모델에게 문장을 완성하라고 지시한후 결과는 훨씬 더 좋아 보입니다("문장을 완성하세요"라는 지시를 따르고 있기때문에). 이처럼 모델이 작업을 수행하도록 지시하는 최적의 프롬프트를 설계하는 접근 방식을 **프롬프트 엔지니어링**이라고 합니다.
+
+위의 예는 LLM으로 무엇이 가능한지에 대한 기본적인 설명입니다. LLM은 텍스트 요약에서 수학적 추론, 코드 생성에 이르기까지 모든 종류의 고급 작업을 수행할 수 있습니다.
+
+
+## 프롬프트 포맷
+
+위에서는 간단한 프롬프트를 사용하였습니다. 표준적인 프롬프트 포맷은 다음과 같습니다.:
+
+```
+<질문>?
+```
+
+또는 
+
+```
+<지시>
 ```
  
-This can be formatted into a question answering (QA) format, which is standard in a lot of QA datasets, as follows:
+이는 다음과 같이 많은 QA 데이터 세트에서 표준인 질문응답(QA) 포맷으로 형식화할 수 있습니다.:
 
 ```
-Q: <Question>?
+Q: <질문>?
 A: 
 ```
 
-When prompting like the above, it's also referred to as *zero-shot prompting*, i.e., you are directly prompting the model for a response without any examples or demonstrations about the task you want it to achieve. Some large language models do have the ability to perform zero-shot prompting but it depends on the complexity and knowledge of the task at hand. 
+위와 같이 프롬프트를 하는 경우 *제로샷 프롬프트(zero-shot prompting)*라고도 합니다. 즉, 예제나 데모 없이 모델에 직접 응답을 요청하는 것입니다. 일부 대규모 언어 모델에는 제로샷 프롬프팅을 수행할 수 있는 기능이 있지만 대상 작업의 복잡성과 지식에 따라 다릅니다.
 
-Given the standard format above, one popular and effective technique to prompting is referred to as *few-shot prompting* where we provide exemplars (i.e., demonstrations). Few-shot prompts can be formatted as follows:
-
-```
-<Question>?
-<Answer>
-
-<Question>?
-<Answer>
-
-<Question>?
-<Answer>
-
-<Question>?
+위의 표준 포맷을 고려할 때 인기 있고 효과적인 프롬프팅 기술로 *퓨샷 프롬프팅(few-shot prompting)*이 있습니다. 퓨샷 프롬프팅는 모범 사례(즉, 데모)를 제공합니다. 
+퓨샷 프롬프트는 다음과 같이 형식화할 수 있습니다.:
 
 ```
+<질문>?
+<응답>
 
-The QA format version would look like this:
+<질문>?
+<응답>
+
+<질문>?
+<응답>
+
+<질문>?
 
 ```
-Q: <Question>?
-A: <Answer>
 
-Q: <Question>?
-A: <Answer>
+QA 포맷 버젼은 다음과 같습니다.:
 
-Q: <Question>?
-A: <Answer>
+```
+Q: <질문>?
+A: <응답>
 
-Q: <Question>?
+Q: <질문>?
+A: <응답>
+
+Q: <질문>?
+A: <응답>
+
+Q: <질문>?
 A:
 ```
 
-Keep in mind that it's not required to use QA format. The prompt format depends on the task at hand. For instance, you can perform a simple classification task and give exemplars that demonstrate the task as follows:
+QA 포맷을 반드시 사용할 필요는 없습니다.프롬프트 포맷은 대상작업에 따라 다릅니다. 예를 들어 간단한 분류 작업을 수행하고 다음과 같이 작업을 보여주는 예제를 제공할 수 있습니다.:
 
-*Prompt:*
+*프롬프트:*
 ```
-This is awesome! // Positive
-This is bad! // Negative
-Wow that movie was rad! // Positive
-What a horrible show! //
-```
-
-*Output:*
-```
-Negative
+이것은 훌륭하다! // 긍정적
+이것은 나쁘다! // 부정적
+우와 그 영화 멋졌어! // 긍정적
+짜증나는 프로였어! //
 ```
 
-Few-shot prompts enable in-context learning which is the ability of language models to learn tasks given a few demonstrations.
+*출력:*
+```
+부정적
+```
+
+퓨샷 프롬프트로 문맥에 따른 학습이 가능합니다.언어 모델이 주어진 작업을 학습하기 위하여 몇 가지 데모를 제공하기도 합니다.
