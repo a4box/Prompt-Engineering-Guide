@@ -1,33 +1,33 @@
-# Examples of Prompts
+# 프롬프트 예제
 
-In the previous section, we introduced and gave a basic examples of how to prompt LLMs. 
+이전 섹션에서는 LLM을 프롬프트하는 기본적인 예를 소개하였습니다.
 
-In this section, we will provide more examples of how prompts are used to achieve different tasks and introduce key concepts along the way. Often, the best way to learn concepts is by going through examples. Below we cover a few examples of how well-crafted prompts can be used to perform different types of tasks.
+이 섹션에서는 프롬프트를 사용하여 다양한 작업을 수행하는 방법에 대한 더 많은 예를 제공하고 그 과정에서 주요 개념을 소개합니다. 개념을 배우는 가장 좋은 방법은 예제를 살펴보는 것입니다. 아래에서는 잘 만들어진 프롬프트를 사용하여 다양한 유형의 작업을 수행하기 위해 어떻게 하는지 대한 몇 가지 예를 다룹니다.
 
-Topics:
-- [Text Summarization](#text-summarization)
-- [Information Extraction](#information-extraction)
-- [Question Answering](#question-answering)
-- [Text Classification](#text-classification)
-- [Conversation](#conversation)
-- [Code Generation](#code-generation)
-- [Reasoning](#reasoning)
+토픽:
+- [텍스트 요약](#text-summarization)
+- [정보 추출](#information-extraction)
+- [질문 응답](#question-answering)
+- [텍스트 분류](#text-classification)
+- [회화](#conversation)
+- [코드 생성](#code-generation)
+- [추론](#reasoning)
 
 ---
 
-## Text Summarization
-One of the standard tasks in natural language generation is text summarization. Text summarization can include many different flavors and domains. In fact, one of the most promising applications of language models is the ability to summarize articles and concepts into quick and easy-to-read summaries. Let's try a basic summarization task using prompts.
+## 텍스트 요약
+자연어 생성의 표준 작업 중 하나는 텍스트 요약입니다. 텍스트 요약에는 다양한 특징과 도메인이 포함될 수 있습니다. 실제로 언어 모델의 가장 유망한 어플리케이션 중 하나는 기사와 개념을 빠르고 읽기 쉽게 요약하는 기능입니다. 프롬프트를 사용하여 기본 요약 작업을 시도해 봅시다.
 
-Let's say I am interested to learn about antibiotics, I could try a prompt like this:
+내가 항생제에 대해 배우고 싶다고 가정할경우 다음과 같은 프롬프트를 시도해 볼 수 있습니다.:
 
-*Prompt:*
+*프롬프트:*
 ```
-Explain antibiotics
+항생제에 대해 설명해주세요.
 
 A:
 ```
 
-*Output:*
+*출력:*
 ```
 Antibiotics are a type of medication used to treat bacterial infections. They work by either killing the bacteria or preventing them from reproducing, allowing the body’s immune system to fight off the infection. Antibiotics are usually taken orally in the form of pills, capsules, or liquid solutions, or sometimes administered intravenously. They are not effective against viral infections, and using them inappropriately can lead to antibiotic resistance.
 ```
